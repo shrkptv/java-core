@@ -10,6 +10,43 @@ public class Order {
     private List<OrderItem> items;
     private OrderStatus status;
 
+    public Order(String orderId, LocalDateTime orderDate, Customer customer, List<OrderItem> items,
+                 OrderStatus status) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.customer = customer;
+        this.items = items;
+        this.status = status;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
