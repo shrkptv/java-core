@@ -9,8 +9,8 @@ public class Faction implements Runnable{
     private final Random random = new Random();
     private final Map<RobotPart, Integer> army;
     private final Lock lock = new ReentrantLock();
-    private Factory factory;
-    private String name;
+    private final Factory factory;
+    private final String name;
 
     {
         army = new EnumMap<>(RobotPart.class);
@@ -21,14 +21,6 @@ public class Faction implements Runnable{
     }
     public Faction(String name, Factory factory) {
         this.name = name;
-        this.factory = factory;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setFactory(Factory factory) {
         this.factory = factory;
     }
 
