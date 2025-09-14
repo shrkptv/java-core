@@ -3,48 +3,41 @@ package tasks.linkedlist;
 import java.util.NoSuchElementException;
 
 
-public class MyLinkedList <T> {
+public class MyLinkedList<T> implements LinkedList<T> {
 
     private Node<T> head;
     private Node<T> tail;
     private int size = 0;
 
-    public MyLinkedList() {
-    }
 
-    public int size()
-    {
+    @Override
+    public int size() {
         return size;
     }
 
-    public T getFirst()
-    {
-        if(head == null)
-        {
+    @Override
+    public T getFirst() {
+        if (head == null) {
             throw new NoSuchElementException();
         }
 
         return head.getInfo();
     }
 
-    public T getLast()
-    {
-        if(tail == null)
-        {
+    @Override
+    public T getLast() {
+        if (tail == null) {
             throw new NoSuchElementException();
         }
         return tail.getInfo();
     }
 
-    public void addFirst(T el)
-    {
-        if(size == 0)
-        {
+    @Override
+    public void addFirst(T el) {
+        if (size == 0) {
             head = new Node<>(el, null, null);
             tail = head;
-        }
-        else
-        {
+        } else {
             Node<T> oldHead = head;
             head = new Node<>(el, null, oldHead);
             oldHead.setPrev(head);
@@ -52,14 +45,11 @@ public class MyLinkedList <T> {
         size++;
     }
 
-    public void addLast(T el)
-    {
-        if(size == 0)
-        {
+    @Override
+    public void addLast(T el) {
+        if (size == 0) {
             addFirst(el);
-        }
-        else
-        {
+        } else {
             Node<T> oldTail = tail;
             tail = new Node<>(el, oldTail, null);
             oldTail.setNext(tail);
@@ -67,43 +57,36 @@ public class MyLinkedList <T> {
         }
     }
 
-    private Node <T> findNode(int index)
-    {
-        if(index < 0 || index >= size)
-        {
+    private Node<T> findNode(int index) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
 
         Node<T> node = head;
-        for(int i = 0; i < index; i++)
-        {
+        for (int i = 0; i < index; i++) {
             node = node.getNext();
         }
         return node;
     }
 
-    public T get(int index)
-    {
+    @Override
+    public T get(int index) {
         return (findNode(index)).getInfo();
     }
 
-    public T removeFirst()
-    {
-        if(head == null)
-        {
-           throw new NoSuchElementException();
+    @Override
+    public T removeFirst() {
+        if (head == null) {
+            throw new NoSuchElementException();
         }
 
         T value = head.getInfo();
 
         head = head.getNext();
 
-        if(head == null)
-        {
+        if (head == null) {
             tail = null;
-        }
-        else
-        {
+        } else {
             head.setPrev(null);
         }
 
@@ -111,22 +94,18 @@ public class MyLinkedList <T> {
         return value;
     }
 
-    public T removeLast()
-    {
-        if(tail == null)
-        {
+    @Override
+    public T removeLast() {
+        if (tail == null) {
             throw new NoSuchElementException();
         }
 
         T value = tail.getInfo();
 
         tail = tail.getPrev();
-        if(tail == null)
-        {
+        if (tail == null) {
             head = null;
-        }
-        else
-        {
+        } else {
             tail.setNext(null);
         }
 
@@ -134,20 +113,16 @@ public class MyLinkedList <T> {
         return value;
     }
 
-    public void add(int index, T el)
-    {
-        if(index < 0 || index > size)
-        {
+    @Override
+    public void add(int index, T el) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
 
-        if(index == 0)
-        {
+        if (index == 0) {
             addFirst(el);
             return;
-        }
-        else if(index == size)
-        {
+        } else if (index == size) {
             addLast(el);
             return;
         }
@@ -162,19 +137,15 @@ public class MyLinkedList <T> {
         size++;
     }
 
-    public T remove(int index)
-    {
-        if(index < 0 || index >= size)
-        {
+    @Override
+    public T remove(int index) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
 
-        if(index == 0)
-        {
+        if (index == 0) {
             return removeFirst();
-        }
-        else if (index == size - 1)
-        {
+        } else if (index == size - 1) {
             return removeLast();
         }
 

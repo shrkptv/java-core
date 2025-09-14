@@ -16,6 +16,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Add elements at the beginning of the list")
     public void testAddFirst()
     {
         list.addFirst(1);
@@ -28,6 +29,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Add elements at the end of the list")
     public void testAddLast()
     {
         list.addLast(100);
@@ -41,6 +43,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Add elements at specific positions and retrieve them")
     public void testAddAndGet()
     {
         list.addFirst(44);
@@ -54,6 +57,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Remove the first element from the list")
     public void testRemoveFirst()
     {
         list.addLast(33);
@@ -65,6 +69,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Remove the last element from the list")
     public void testRemoveLast()
     {
         list.addLast(10);
@@ -78,6 +83,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Remove element from a specific position")
     public void testRemove()
     {
         list.addFirst(42);
@@ -90,6 +96,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Test with generic String type")
     public void testGenericTypes()
     {
         MyLinkedList<String> entries = new MyLinkedList<>();
@@ -110,6 +117,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Handle invalid index operations")
     public void testInvalidIndex()
     {
         list.addLast(10);
@@ -127,6 +135,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Get first/last element from empty list throws exception")
     public void testGetFirstAndLastFromEmptyList()
     {
         assertThrows(NoSuchElementException.class, () -> list.getFirst());
@@ -134,6 +143,7 @@ public class MyLinkedListTest {
     }
 
     @Test
+    @DisplayName("Remove first/last element from empty list throws exception")
     public void testRemoveFirstAndLastFromEmptyList()
     {
         assertThrows(NoSuchElementException.class, () -> list.removeFirst());
