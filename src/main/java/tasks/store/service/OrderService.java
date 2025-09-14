@@ -1,6 +1,9 @@
 package tasks.store.service;
 
-import tasks.store.*;
+import tasks.store.Customer;
+import tasks.store.Order;
+import tasks.store.OrderItem;
+import tasks.store.OrderStatus;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -9,8 +12,13 @@ public class OrderService {
 
     public List<String> getUniqueCities(List<Order> orders)
     {
+        if (orders == null) {
+            return List.of();
+        }
+
         return orders.stream()
-                .map(order -> order.getCustomer().getCity())
+                .map(Order::getCustomer)
+                .map(Customer::getCity)
                 .distinct()
                 .toList();
     }

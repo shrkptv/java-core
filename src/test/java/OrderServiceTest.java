@@ -1,7 +1,11 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tasks.store.*;
+import tasks.store.Category;
+import tasks.store.Customer;
+import tasks.store.Order;
+import tasks.store.OrderItem;
+import tasks.store.OrderStatus;
 import tasks.store.service.OrderService;
 
 import java.time.LocalDateTime;

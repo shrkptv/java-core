@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Order {
-    private String orderId;
+    private final String orderId;
     private LocalDateTime orderDate;
     private Customer customer;
     private List<OrderItem> items;
@@ -21,10 +21,6 @@ public class Order {
 
     public String getOrderId() {
         return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
     }
 
     public LocalDateTime getOrderDate() {
